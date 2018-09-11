@@ -60,11 +60,25 @@ int bracketsToNum(char bracket)
 
 bool bracketsCheck(char openBracket, char closeBracket)
 {
-	if (!(bracketsToNum(openBracket) & bracketsToNum(closeBracket)))
+	bool check = false;
+	switch (openBracket)
 	{
-		return true;
+	case '(':
+		if (closeBracket == ')')
+			check = true;
+		break;
+	case '{':
+		if (closeBracket == '}')
+			check = true;
+		break;
+	case '[':
+		if (closeBracket == ']')
+			check = true;
+		break;
+	default:
+		break;
 	}
-	return false;
+	return check;
 }
 
 int brackets(string strBracket)

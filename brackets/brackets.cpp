@@ -1,7 +1,5 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <iostream>
-#include <fstream>
 #include <string>
 #include <stack>
 
@@ -153,7 +151,6 @@ int brackets(string strBracket)
 
 int main()
 {
-	ifstream inf;
 	string tmpStr;
 	int testNum = 0;
 	cin >> testNum;

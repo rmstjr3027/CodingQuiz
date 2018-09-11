@@ -13,7 +13,7 @@ do
 	if [ $DIFF -ne 0 ]; then
 		echo "test"$i" fail"
 	else
-		#rm -f $RES_FILE
+		rm -f $RES_FILE
 		echo "test"$i" succ"
 	fi
 done

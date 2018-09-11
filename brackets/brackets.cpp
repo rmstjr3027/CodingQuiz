@@ -155,15 +155,13 @@ int main()
 {
 	ifstream inf;
 	string tmpStr;
-	cin >> tmpStr;
-	inf.open(tmpStr.c_str());
 	int testNum = 0;
-	getline(inf, tmpStr);
-	testNum = atoi(tmpStr.c_str());
+	cin >> testNum;
+	setvbuf (stdin, NULL, _IOFBF, 16384);
 
 	for (int i = 0; i < testNum; i++)
 	{
-		getline(inf, tmpStr);
+		cin >> tmpStr;
 		cout << brackets(tmpStr) << endl;
 	}
 }

@@ -7,6 +7,8 @@
 
 using namespace std;
 
+const int MaxSum = 100000000;
+
 int recorveryBracket(int num)
 {
 	int resultNum = 0;
@@ -57,9 +59,9 @@ int bracketsToNum(char bracket)
 	return resultNum;
 }
 
-bool bracketsCheck(char left, char right)
+bool bracketsCheck(char openBracket, char closeBracket)
 {
-	if (!(bracketsToNum(left) & bracketsToNum(right)))
+	if (!(bracketsToNum(openBracket) & bracketsToNum(closeBracket)))
 	{
 		return true;
 	}
@@ -118,7 +120,7 @@ int brackets(string strBracket)
 					if (bracketsCheck(tmp, recorveryBracket(stackBuf.top())))
 					{
 						stackBuf.pop();
-						tmpBuf = (tmpBuf * bracketsToNum(tmp)) % 100000000;
+						tmpBuf = (tmpBuf * bracketsToNum(tmp)) % MaxSum;
 						stackBuf.push(tmpBuf);
 						break;
 					}
@@ -130,7 +132,7 @@ int brackets(string strBracket)
 				//숫자
 				else
 				{
-					tmpBuf = (tmpBuf + stackBuf.top()) % 100000000;
+					tmpBuf = (tmpBuf + stackBuf.top()) % MaxSum;
 					stackBuf.pop();
 				}
 			}
@@ -142,10 +144,10 @@ int brackets(string strBracket)
 		{
 			return 0;
 		}
-		num += stackBuf.top();
+		num = (num + stackBuf.top()) % MaxSum;
 		stackBuf.pop();
 	}
-	return num % 100000000 ;
+	return num % MaxSum;
 }
 
 

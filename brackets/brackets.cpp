@@ -6,6 +6,7 @@
 using namespace std;
 
 const int MaxSum = 100000000;
+const int MaxBufSize = 16384;
 
 int recorveryBracket(int num)
 {
@@ -154,7 +155,7 @@ int main()
 	string tmpStr;
 	int testNum = 0;
 	cin >> testNum;
-	setvbuf (stdin, NULL, _IOFBF, 16384);
+	setvbuf (stdin, NULL, _IOFBF, MaxBufSize);
 
 	for (int i = 0; i < testNum; i++)
 	{
